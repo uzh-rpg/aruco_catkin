@@ -10,9 +10,10 @@ file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
 
 ExternalProject_Add(aruco_src
   URL https://sourceforge.net/projects/aruco/files/3.0.0/aruco304.zip
-
-  CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CATKIN_DEVEL_PREFIX}
-  BUILD_COMMAND CXXFLAGS=-i${CATKIN_DEVEL_PREFIX}/include make
+  CMAKE_ARGS
+    -DCMAKE_INSTALL_PREFIX=${CATKIN_DEVEL_PREFIX}
+    -DCMAKE_BUILD_TYPE:STRING=Release
+  BUILD_COMMAND make
   INSTALL_COMMAND make install
 )
 
